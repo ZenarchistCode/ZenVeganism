@@ -1,0 +1,35 @@
+PanelWidgetClass HungerVOverlayRoot
+{
+	ignorepointer 1
+	position 0 0
+	size 35 35
+	halign center_ref
+	valign center_ref
+	hexactpos 1
+	vexactpos 1
+	hexactsize 1
+	vexactsize 1
+	style blank
+	{
+		ImageWidgetClass IconHungryV
+		{
+			ignorepointer 1
+			position -2 2
+			size 10 10
+			halign right_ref
+			valign top_ref
+			hexactpos 1
+			vexactpos 1
+			hexactsize 1
+			vexactsize 1
+			priority 1000
+			image0 ""
+			mode blend
+			"src alpha" 1
+			"clamp mode" clamp
+			stretch 1
+			"stretch mode" stretch_w_h
+			filter 1
+		}
+	}
+}
