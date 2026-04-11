@@ -1,37 +1,48 @@
-NOTE: Do not use this mod until 1.29 releases and my other mods are updated; I will try to get this done as soon as possible after 1.29 releases. Thanks for your patience while I work through the adjustment to all these mods and update my GitHub wiki and source code files.
-
 [h1]What Is This?[/h1]
 
-This mod is a dependency requirement for many of my standalone mods and my Zen Mod Pack.
+This is the mod no one asked for.
 
-I know it's annoying to require a core framework mod to run my other mods, but it is for the best.
+Ever wondered what it would be like to survive the zombie apocalypse as a vegan?
 
-Many of my mods reuse the same code, and given that I have 70+ mods floating around, I thought it was about time I streamlined all my reused code into a single mod.
+Wonder no longer.
 
-This should improve server performance (marginally), but most importantly, improve the management overhead for my own mod development.
+This mod adds a random chance for players to spawn restricted to a vegan diet.
 
-[h1]Features[/h1]
+Admins can configure the chance of spawning as a vegan and the list of prohibited foods in the JSON config (see Instructions section).
 
-This mod doesn't come with a lot of features that the average player will care about, it is more for my own mods to build upon.
+Once a player spawns as a vegan, they cannot eat any meat items (including fish), and they can't even eat honey - after all, they're vegan, and extremely dedicated to their diet.
 
-Here's a short list - if you're a modder, feel free to look into the source code for more details:
-- A base framework for managing config files, including syncing to the client and saving database files
-- A base framework for managing client-side settings in the game's Options menu
-- A base framework for interacting with Discord webhooks (previously contained in my Raid Alarm mod)
-- A base framework for spawning objects onto static objects (eg. Firewood piles, Chicken coops, invisible mapgroupproto objects)
-- Dozens of helper functions for various game mechanics used across many of my mods, and a 3D model base for deployable kits
+Attempting to eat any item containing meat will result in the character throwing up their food, and the only cure is a respawn and hope you don't come back as a vegan a second time.
+
+The one silver lining is that vegans recover their stamina 50% faster than anyone else, due to their increased health and fitness (configurable in the JSON file).
+
+If you want a unique survival challenge and a good reason to grow your own vegetables... give it a try. 
+
+Good luck. 
 
 [h1]Installation Instructions:[/h1]
+
+Note: ZenModCore is a dependency - https://steamcommunity.com/sharedfiles/filedetails/?id=3702420204
 
 Install this mod like any other mod - copy it into your server folder and add it to your mods list. Make sure to copy the .bikey into your server keys if you're not using a server management tool like OmegaManager which does that automatically.
 
 This mod must be run on both client and server.
 
-It also requires Community Framework to function.
+A config file will be automatically generated in profiles/Zenarchist/ZenVeganConfig.json where you can specify the chance to spawn as a vegan, the stamina multiplier vegans get (optional), the text notifications they receive (optional) and the list of foods they cannot eat.
+
+Here's a brief explanation of the JSON settings:
+
+"ConfigVersion": "1.29.1", // Don't touch
+"ChanceToSpawnAsVegan": 0.1, // Chance for a new fresh-spawn to be vegan
+"VeganStaminaRecoveryMulti": 1.5, // Stamina recovery multiplier for vegans (set to 1.0 or 0.0 to disable buff)
+"CanUseFruitOnTreeToVeganize": 0, // Allow players to use fruit on any tree to become vegan (irreversible - off by default) 
+"NotifyVeganText": "#STR_ZenVeganism_Notification", // The text notification players get when spawning to notify them they're vegan
+"NotifyCantEatText": "#STR_ZenVeganism_Yuck", // The text notification players get when trying to eat meat
+"CantEatList": [] // A text list of items a vegan player cannot eat without vomiting
 
 [h1]Repack & Source Code:[/h1]
 
-I recommend not repacking this mod unless you're a very experienced modder and server admin, but you can repack this mod if you like, and do anything else you want with it for that matter. Just keep in mind my future updates won't be applied so make sure to check back for new versions if you notice any bugs. The source code is on my GitHub at www.zenarchist.com
+You can repack this mod if you like, and do anything else you want with it for that matter. Just keep in mind my future updates won't be applied so make sure to check back for new versions if you notice any bugs. The source code is on my GitHub at www.zenarchist.com
 
 [h1]Learn Modding[/h1]
 

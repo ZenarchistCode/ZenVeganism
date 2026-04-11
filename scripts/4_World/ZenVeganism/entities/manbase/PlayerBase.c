@@ -6,12 +6,7 @@ modded class PlayerBase
 	void RollDiceZenVegan()
 	{
 		SetIsZenVegan(false);
-		
-		#ifdef ZenModPack
-		if (!ZenModEnabled("ZenVeganism"))
-			return;
-		#endif
-		
+
 		float dice = Math.RandomFloat01();
 
 		if (dice > GetZenVeganConfig().ChanceToSpawnAsVegan)
@@ -35,11 +30,6 @@ modded class PlayerBase
 	
 	void RefreshZenVeganStamina()
 	{
-		#ifdef ZenModPack
-		if (!ZenModEnabled("ZenVeganism"))
-			return;
-		#endif
-		
 		if (!g_Game.IsDedicatedServer() || GetZenVeganConfig().VeganStaminaRecoveryMulti <= 0)
 			return;
 		
@@ -73,11 +63,6 @@ modded class PlayerBase
 		
 		if (g_Game.IsDedicatedServer())
 		{
-			#ifdef ZenModPack
-			if (!ZenModEnabled("ZenVeganism"))
-				m_IsZenVegan = false;
-			#endif
-			
 			SyncZenVeganStatusToClient();
 		}
 		
@@ -86,12 +71,7 @@ modded class PlayerBase
 	
 	void SyncZenVeganStatusToClient()
 	{
-		#ifdef ZenModPack
-		if (!ZenModEnabled("ZenVeganism"))
-			return;
-		#endif
-		
-		Param1<bool> configParams = new Param1<bool>(m_IsZenVegan);
+		Param1<bool, bool> configParams = new Param1<bool>(m_IsZenVegan);
 		GetRPCManager().SendRPC("RPC_ZenVeganism", "RPC_ReceiveZenIsVeganOnClientRPC", configParams, true, GetIdentity());
 	}
 	

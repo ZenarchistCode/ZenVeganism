@@ -18,8 +18,6 @@ modded class MissionBase
             Error("IMPORTANT ERROR: RPC_ReceiveZenIsVeganOnClientRPC failed! Please tell Zenarchist he fucked up!");
             return;
         }
-		
-		Print("[ZenVeganism] I'm a vegan=" + data.param1);
 
 		Mission mission = g_Game.GetMission();
 		IngameHud hud = IngameHud.Cast(mission.GetHud());
