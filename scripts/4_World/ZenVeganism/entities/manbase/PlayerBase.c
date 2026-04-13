@@ -6,6 +6,9 @@ modded class PlayerBase
 	void RollDiceZenVegan()
 	{
 		SetIsZenVegan(false);
+		
+		if (!GetIdentity())
+			return;
 
 		float dice = Math.RandomFloat01();
 
@@ -71,8 +74,10 @@ modded class PlayerBase
 	
 	void SyncZenVeganStatusToClient()
 	{
-		Param1<bool, bool> configParams = new Param1<bool>(m_IsZenVegan);
-		GetRPCManager().SendRPC("RPC_ZenVeganism", "RPC_ReceiveZenIsVeganOnClientRPC", configParams, true, GetIdentity());
+		if (!GetIdentity())
+			return;
+		
+		GetRPCManager().SendRPC("RPC_ZenVeganism", "RPC_ReceiveZenIsVeganOnClientRPC", new Param1<bool>(m_IsZenVegan), true, GetIdentity());
 	}
 	
 	override bool Consume(PlayerConsumeData data)

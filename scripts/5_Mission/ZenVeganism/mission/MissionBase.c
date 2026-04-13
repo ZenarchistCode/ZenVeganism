@@ -22,7 +22,7 @@ modded class MissionBase
 		Mission mission = g_Game.GetMission();
 		IngameHud hud = IngameHud.Cast(mission.GetHud());
 		PlayerBase pb = PlayerBase.Cast(g_Game.GetPlayer());
-		
+
 		if (!hud || !pb)
 			return;
 	
